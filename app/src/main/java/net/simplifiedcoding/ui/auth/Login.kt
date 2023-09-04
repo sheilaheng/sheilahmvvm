@@ -6,11 +6,13 @@ import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -19,14 +21,19 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import net.simplifiedcoding.R
 import net.simplifiedcoding.data.Resource
+import net.simplifiedcoding.navigation.ROUTE_CONTACTS
 import net.simplifiedcoding.navigation.ROUTE_HOME
 import net.simplifiedcoding.navigation.ROUTE_LOGIN
+import net.simplifiedcoding.navigation.ROUTE_PROJECT
+import net.simplifiedcoding.navigation.ROUTE_SERVICES
 import net.simplifiedcoding.navigation.ROUTE_SIGNUP
 import net.simplifiedcoding.ui.theme.AppTheme
 import net.simplifiedcoding.ui.theme.spacing
@@ -137,6 +144,47 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurface
         )
+
+        Text( text = "Go to projects", color = Color.Cyan,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(10.dp)
+                .clickable {
+                    navController.navigate(ROUTE_PROJECT) {
+                        popUpTo(ROUTE_LOGIN) { inclusive = true }
+                    }
+                }
+            )
+
+
+
+
+
+        Text(text = "Go to Services", color = Color.Green,
+            modifier = Modifier
+                .padding(27.dp)
+                .clickable {
+                    navController.navigate(ROUTE_SERVICES) {
+                        popUpTo(ROUTE_LOGIN) { inclusive = true }
+                    }
+                }
+        )
+
+
+        Text(text = "Go to Contacts", color = Color.Green,
+            modifier = Modifier
+                .padding(40.dp)
+                .clickable {
+                    navController.navigate(ROUTE_CONTACTS) {
+                        popUpTo(ROUTE_LOGIN) { inclusive = true }
+                    }
+                }
+        )
+
+
+
+
+
 
         loginFlow?.value?.let {
             when (it) {
