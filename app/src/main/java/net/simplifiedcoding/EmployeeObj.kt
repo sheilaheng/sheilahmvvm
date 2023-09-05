@@ -1,6 +1,6 @@
 package net.simplifiedcoding
 
-data class EmployeeObj {
+class EmployeeObj {
 
     var employeeName:String = ""
     var employeeContactNumber:String = ""
