@@ -29,6 +29,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import net.simplifiedcoding.R
 import net.simplifiedcoding.data.Resource
+import net.simplifiedcoding.navigation.ROUTE_ADD
 import net.simplifiedcoding.navigation.ROUTE_CONTACTS
 import net.simplifiedcoding.navigation.ROUTE_HOME
 import net.simplifiedcoding.navigation.ROUTE_LOGIN
@@ -180,6 +181,17 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
                     }
                 }
         )
+
+        Text(text = "Aded Data", color = Color.Green,
+            modifier = Modifier
+                .padding(60.dp)
+                .clickable {
+                    navController.navigate(ROUTE_ADD) {
+                        popUpTo(ROUTE_LOGIN) { inclusive = true }
+                    }
+                }
+        )
+
 
 
 
