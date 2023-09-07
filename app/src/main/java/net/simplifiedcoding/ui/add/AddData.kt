@@ -1,7 +1,6 @@
 package net.simplifiedcoding.ui.add
 
 
-import android.R.attr.name
 import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.Toast
@@ -15,7 +14,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -36,9 +34,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import net.simplifiedcoding.EmployeeObj
-
 import net.simplifiedcoding.ui.auth.AuthViewModel
 
 
@@ -71,11 +67,11 @@ fun firebaseUI(context: Context, databaseReference: DatabaseReference) {
         mutableStateOf(TextFieldValue())
     }
 
-    val address = remember {
+    val contactNumber = remember {
         mutableStateOf(TextFieldValue())
     }
 
-    val contactNumber = remember {
+    val address = remember {
         mutableStateOf(TextFieldValue())
     }
 
@@ -208,7 +204,7 @@ fun firebaseUI(context: Context, databaseReference: DatabaseReference) {
             onClick = {
                 // on below line we are adding data.
 
-                      var empObj = EmployeeObj(name.value.text,address.value.text,contactNumber.value.text)
+                      var empObj = EmployeeObj(name.value.text,contactNumber.value.text,address.value.text)
 
                 databaseReference.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {

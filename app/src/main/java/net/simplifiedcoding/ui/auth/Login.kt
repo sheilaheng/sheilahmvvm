@@ -182,7 +182,7 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
                 }
         )
 
-        Text(text = "Aded Data", color = Color.Green,
+        Text(text = "Add Data", color = Color.Green,
             modifier = Modifier
                 .padding(60.dp)
                 .clickable {
